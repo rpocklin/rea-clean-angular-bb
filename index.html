@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Refactor and build re-usable components in Angular.js</title>
+    <link rel="stylesheet" type="text/css" href="build/build.css">
+  </head>
+  <body>
+    <article>
+      <section>
+        <h2 style="font-size: 200%;">
+          <div>How to refactor and</div>
+          <div>build re-usable components in Angular.js</div>
+        </h2><br><br>
+        <div style="display: inline-block"><img src="images/angular.png" width="150px" class="right"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><img src="images/web_component.png" width="150px" style="background-color: white;" class="right"></div>
+      </section>
+      <section><br><br>
+        <h2>Quick Intro</h2>
+        <li></li>
+        <li>Rob Pocklington</li>
+        <li>Full-stack developer my whole career (12 years)</li>
+        <li>been using <span class="c1">J-Query</span> and <span class="c2">Javascript</span> for 5+ years</li>
+        <li><span class="c3">Backbone.js</span> for almost 2 years</li>
+        <li><span class="c4">Angular.js</span> for the same</li><br><br><br><br><br><br>
+      </section>
+      <section>
+        <h2 style="color: #aa99ff">Thanks for having me here</h2><br><br><br>
+      </section>
+      <section>
+        <h2>Overview</h2>
+        <li></li>
+        <li>Clean Code + Refactoring</li>
+        <li>Problem Areas + Code Tips</li>
+        <li>Example App + Code Review</li>
+        <li>Directives in Angular.js</li>
+        <li>Create a shared component</li>
+        <li>Releasing shared components</li>
+      </section>
+      <section>
+        <h2>What is clean code?</h2>
+        <li></li>
+        <li><span class="c4">Intuitive</span><br/>File layout is important<br/><br/></li>
+        <li><span class="c3">Consistent</span><br/>Keep names in sync<br/><br/></li>
+        <li><span class="c6">Clearly separated</span><br/>components<br/><br/></li>
+        <li><span class="c2">Building blocks</span><br/>Small, modular, testable code</li>
+      </section>
+      <section>
+        <h2>Single Page App Development</h2>
+        <li></li>
+        <li>Basics - HTML / CSS / Javascript</li>
+        <li>Use Bower + Grunt / Gulp</li>
+        <li>Developing IS refactoring!</li>
+        <li>Re-usable components come from refactoring</li>
+      </section>
+      <section>
+        <h2>Refactoring Tools</h2>
+        <li></li>
+        <li class="c2">Team - Tech huddle etc.</li>
+        <li class="c4">Pairing</li>
+        <li class="c6">IDE Intellij etc.</li>
+        <li class="c8">Tests</li>
+        <li class="c7">CLI / REPL</li>
+      </section>
+      <section>
+        <h2>Refactoring Anti-Patterns</h2>
+        <li></li>
+        <li>Building a framework / DSL (just 'cause)</li>
+        <li>Bounded refactor</li>
+        <li>Cowboy refactor</li><br><br>
+      </section>
+      <section>
+        <h2>Refactoring in Angular.js</h2>
+        <li></li>
+        <li>Get fast developer feedback!&nbsp;&nbsp;<span class="c6">< 8 secs</span><br/><br/></li>
+        <li><span class="c7">A place for everything</span><br/>Routes, controllers, views, directives, models, factories and services<br/><br/></li>
+        <li><span class="c1">Tests</span><br/>Simple / Service / Controller / Directive<br/><br/></li>
+        <!-- dependency injection, modules, especially gulp / etc easy to test / mock everything-->
+      </section>
+      <section>
+        <h2>Anti-Patterns & Problem areas</h2>
+        <li></li>
+        <li>Controllers - the dumping ground</li>
+        <li>Copy / Paste / #Fail</li>
+        <li>Models - often under-utilised</li>
+        <li>rootScope - <i>c'est pour rien</i></li>
+      </section>
+      <section>
+        <h2>Common Refactors</h2>
+        <li></li>
+        <li>Views => <b>ng-include</b></li>
+        <li>View Logic => Controller</li>
+        <li>Controller Code => Service</li>
+        <li>Controller + View Code => Directive</li>
+        <li></li>
+      </section>
+      <section>
+        <h2>Clean Code Tips</h2>
+        <li></li>
+        <li>Don't embed an angular view in <b>index.html</b> </li>
+        <li>Question the use of <i>ng-controller</i><br/><br/></li>
+        <li>Use <b>controllerAs</b> syntax in controllers<br/><br/></li>
+        <li>Make services return <b>promises</b></li>
+        <li>Use <b>resolve</b> to load view-dependent data</li>
+      </section>
+      <section>
+        <h2>UI / UX Clean Code Tips</h2>
+        <li></li>
+        <li>agree on form validation patterns early</li>
+        <li>do page interaction diagrams</li>
+        <li>Prefer <b>no popups / modals</b></li>
+        <li>notifications: ensure they survive a route change</li>
+        <li>give each view CSS which matches the state name</li>
+        <li>CSS is code too</li>
+      </section>
+      <section>
+        <h2>Personal suggestions&nbsp;&nbsp;(Y.M.M.V)</h2>
+        <li></li>
+        <li>Use a yeoman generator for scaffolding your app</li>
+        <li><b>init</b> methods for controllers / stateful services</li>
+        <li>Declare routes and resolves with controllers</li>
+      </section>
+      <section>
+        <h2>Example app walkthrough</h2><br>
+        <li></li><br><br><br><br><br>
+      </section>
+      <section>
+        <h2>Code Review</h2><br>
+        <li></li><br><br><br><br><br>
+      </section>
+      <section>
+        <h2>Directives: shared components</h2>
+        <li></li>
+        <li class="small c5">Directives in Angular.js can be hard</li>
+        <li class="small c6">but they can save you a heap of time ...</li>
+        <li class="small c7"><br>writing tests for directives can also be hard</li>
+        <li class="small c8">but then you can safely change your code ...</li>
+        <li class="small c9"><br>extracting directives from your codebase can be tricky</li>
+        <li class="small c10">but then you can version and release it independently</li>
+      </section>
+      <section>
+        <h2>Lets make a shared component</h2><br>
+        <li></li><blink class="c6">Coding time!</blink><br><br><br><br>
+      </section>
+      <section>
+        <h2>Releasing a Directive</h2>
+        <li></li>
+        <li>an example is mandatory!</li>
+        <li>instructions are important</li>
+        <li>so are documentation and license info<br/><br/></li>
+      </section>
+      <section>
+        <h2>As a Directive Author</h2>
+        <li></li>
+        <li>don't use xyz fancy library just 'coz</li>
+        <li>aim for the lowest version support you need</li>
+        <li>view templates - inline or compiled</li>
+        <li>use isolated scope</li>
+        <li>test on all the browsers</li>
+      </section>
+      <section>
+        <h2>Tools that help</h2>
+        <li></li>
+        <li class="c7">Grunt / Gulp</li>
+        <li class="c8">Karma</li>
+        <li class="c5">JS-Hint</li>
+        <li class="c4">JS Beautify</li>
+        <li class="c1">Coveralls</li>
+        <li class="c7">Travis CI</li>
+      </section>
+      <section>
+        <li>
+          <h2 class="c4">That's it!</h2>
+        </li>
+        <li>
+          <h2 style="color: #aa99ff">Questions?</h2>
+        </li><br><br><br>
+      </section>
+    </article>
+    <script src="build/build.js"></script>
+  </body>
+</html>
